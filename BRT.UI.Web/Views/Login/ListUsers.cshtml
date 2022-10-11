@@ -1,0 +1,28 @@
+﻿@using BRT.Models.Entity
+@model List<Login>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<a id="create" class="btn btn-primary" href="/Login/Create"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i><h5>Create New</h5></a>
+<h2>List Users</h2>
+
+<table id="customers">
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Update</th>
+        <th>Remove</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Username</td>
+            <td>@item.Password</td>
+            <td><a href="/Login/Edit/@item.Id"><i class="fa fa-recycle" aria-hidden="true"></i></a></td>
+            <td><a href="/Login/Remove/@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+        </tr>
+    }
+
+
+</table>

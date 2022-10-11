@@ -1,0 +1,40 @@
+﻿@model BRT.Models.Entity.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/css/deneme.css" rel="stylesheet" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+
+              <h2 align="center">Sign Up</h2>
+            </div>
+            <!-- Login Form -->
+            @using (Html.BeginForm())
+            {
+                <label>User Name: </label>
+                @Html.EditorFor(model => model.Username, new { @class = "fadeIn second", @name = "login", @id = "login" })
+                @Html.ValidationMessageFor(model => model.Username)
+                <label>Password: </label>
+                @Html.EditorFor(model => model.Password, new { @class = "fadeIn third", @name = "login", @id = "password" })
+                @Html.ValidationMessageFor(model => model.Password)
+                <input class="fadeIn fourth" type="submit" value="Sign Up" name="">
+            }           
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@using BRT.Models.Entity
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<a id="create" class="btn btn-primary" href="/Category/Create"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i><h5>Create New</h5></a>
+<h2>Index</h2>
+
+<table id="customers">
+    <tr>
+        <th>Category Name</th>
+        <th>Discount</th>
+        <th>Update</th>
+        <th>Remove</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.CategoryName</td>
+        <td>@item.Discount</td>
+        <td><a href="/Category/Edit/@item.Id"><i class="fa fa-recycle" aria-hidden="true"></i></a></td>
+        <td><a href="/Category/Remove/@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+    </tr>
+    }
+
+
+</table>
